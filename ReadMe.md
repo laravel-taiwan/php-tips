@@ -16,7 +16,21 @@
 
 ![Crypt Structure](https://www.php.net/manual/zh/images/0af3dc557de5198c4312d2c38c08fbf0-crypt-text-rendered.svg)
 
+## 下面程式碼怎麽沒有分成兩行顯示？
+```php
+<pre>
+<?php echo "This should be the first line."; ?>
+<?php echo "This should show up after the new line above."; ?>
+</pre>
+```
+
+在 PHP 中，一段程式碼的結束標記，要嘛是`?>`，要嘛是`?>\n`（\n 表示換行）。因此在上面的例子中，輸出的句子將顯示在同一行中，因為 PHP 忽略了程式碼結束標記後面的換行。這意味著如果要輸出一個換行符號，需要在每段 PHP 程式碼的結束標記後面多加一個換行。
+
+PHP 為什麽這麽做呢？因為在格式化正常的 HTML 時，這樣通常會更容易。假如輸出了換行而你不需要這個換行時，就不得不用一個非常長的行來達到這樣的效果，或者讓產生的 HTML 頁面的源文件的格式很難讀。
+
+
 
 ## 參考資料
 
-<https://www.php.net/manual/zh/faq.using.php>
+- <https://segmentfault.com/a/1190000040084826>
+- <https://www.php.net/manual/zh/faq.using.php>
